@@ -1,7 +1,8 @@
 import { Pool } from 'pg';
-import dotenv from 'dotenv';
 
-dotenv.config();
+if (process.env.NODE_ENV !== 'production') {
+  import('dotenv').then((dotenv) => dotenv.config());
+}
 
 console.log("DB_USER:", process.env.DB_USER);
 console.log("DB_HOST:", process.env.DB_HOST);
