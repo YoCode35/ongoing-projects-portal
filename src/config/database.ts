@@ -1,7 +1,8 @@
 import { Pool } from 'pg';
 
+// Charger dotenv de manière synchrone si en développement
 if (process.env.NODE_ENV !== 'production') {
-  import('dotenv').then((dotenv) => dotenv.config());
+  require('dotenv').config(); // Utilisation de require pour charger dotenv synchroniquement
 }
 
 console.log("DB_USER:", process.env.DB_USER);
@@ -23,4 +24,3 @@ const query = async (text: string, params?: any[]) => {
 };
 
 export { query };
-
