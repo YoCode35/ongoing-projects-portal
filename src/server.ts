@@ -5,6 +5,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 console.log("⚡ Chargement des variables d'environnement...");
+console.log("NODE_ENV:", process.env.NODE_ENV);
 console.log("DB_USER:", process.env.DB_USER);
 console.log("DB_HOST:", process.env.DB_HOST);
 console.log("DB_DATABASE:", process.env.DB_DATABASE);
