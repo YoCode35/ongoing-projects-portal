@@ -1,7 +1,8 @@
 import app from "./app";
-import dotenv from 'dotenv';
 
-dotenv.config();
+if (process.env.NODE_ENV !== 'production') {
+  import('dotenv').then((dotenv) => dotenv.config());
+}
 
 console.log("⚡ Chargement des variables d'environnement...");
 console.log("DB_USER:", process.env.DB_USER);
