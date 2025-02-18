@@ -1,8 +1,7 @@
 import { Pool } from 'pg';
 
-// Charger dotenv de manière synchrone si en développement
 if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config(); // Utilisation de require pour charger dotenv synchroniquement
+  require('dotenv').config();
 }
 
 console.log("NODE_ENV:", process.env.NODE_ENV);
@@ -19,7 +18,6 @@ const pool = new Pool({
   port: Number(process.env.DB_PORT),
 });
 
-// Ajouter un test de connexion pour vérifier si la connexion est réussie
 pool.connect()
   .then(() => console.log("Connexion à la base de données réussie"))
   .catch((err) => console.error("Erreur lors de la connexion à la base de données", err));

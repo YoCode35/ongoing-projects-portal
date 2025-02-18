@@ -1,4 +1,3 @@
-// src/routes/dashboard.ts
 import { Router, Request, Response } from 'express';
 import { authenticateToken } from '../middlewares/authMiddleware';
 import { query } from '../config/database';

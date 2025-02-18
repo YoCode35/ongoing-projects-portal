@@ -1,4 +1,3 @@
-// src/routes/login.ts
 import { Router, Request, Response } from 'express';
 import { query } from '../config/database';
 import jwt from 'jsonwebtoken';

@@ -1,14 +1,11 @@
-// src/middlewares/authMiddleware.ts
 import { Request, Response, NextFunction } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 
-// Définition du type pour le payload JWT
 interface CustomJwtPayload extends JwtPayload {
   userId: number;
   role: string;
 }
 
-// Middleware de vérification du token JWT
 export const authenticateToken = (req: Request, res: Response, next: NextFunction): void => {
   const token = req.header('Authorization')?.split(' ')[1];
 
@@ -35,7 +32,6 @@ export const authenticateToken = (req: Request, res: Response, next: NextFunctio
   });
 };
 
-// Middleware pour vérifier le rôle d'admin
 export const isAdmin = (req: Request, res: Response, next: NextFunction): void => {
   const user = req.user;
 
