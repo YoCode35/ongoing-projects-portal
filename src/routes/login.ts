@@ -9,7 +9,7 @@ router.post('/', async (req: Request, res: Response): Promise<void> => {
   const { username, password } = req.body;
 
   if (!username || !password) {
-    res.status(400).send('Username et password sont requis');
+    res.status(400).send('Identifiant et/ou mot de passe requis');
     return;
   }
 
@@ -17,14 +17,14 @@ router.post('/', async (req: Request, res: Response): Promise<void> => {
     const result = await query('SELECT id, username, password, role FROM users WHERE username = $1', [username]);
 
     if (result.length === 0) {
-      res.status(404).send('Utilisateur non trouvé');
+      res.status(404).send('Identifiant et/ou mot de passe incorrecte');
       return;
     }
 
     const user = result[0];
 
     if (user.password !== password) {
-      res.status(401).send('Mot de passe incorrect');
+      res.status(401).send('Identifiant et/ou mot de passe incorrecte');
       return;
     }
 
